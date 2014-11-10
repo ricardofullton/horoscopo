@@ -28,10 +28,29 @@
     <artifactId>hibernate-core</artifactId>
     <version>4.3.6.Final</version>
 </dependency>
+    
+
+   
+    <dependency>
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId>
+      <version>5.1.33</version>
+    </dependency>
+    <dependency>
+      <groupId>javax.annotation</groupId>
+      <artifactId>jsr250-api</artifactId>
+      <version>1.0</version>
+      <scope>provided</scope>
+    </dependency>
     <dependency>
       <groupId>org.hibernate</groupId>
       <artifactId>hibernate-entitymanager</artifactId>
       <version>4.1.8.Final</version>
+    </dependency>
+    <dependency>
+      <groupId>1</groupId>
+      <artifactId>12</artifactId>
+      <version>6.0</version>
     </dependency>
   </dependencies>
 

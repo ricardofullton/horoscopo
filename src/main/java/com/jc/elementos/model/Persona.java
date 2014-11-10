@@ -22,9 +22,10 @@ import javax.persistence.Table;
  * @author Ricardo.huarte
  */
 @Entity
-@Table(name = "trabajador")
-
-public class Trabajador implements Serializable {
+@Table(name = "persona")
+@NamedQueries({
+    @NamedQuery(name = "Persona.findAll", query = "SELECT p FROM Persona p")})
+public class Persona implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -38,23 +39,10 @@ public class Trabajador implements Serializable {
     @Column(name = "MATERNO")
     private String materno;
 
-    public Trabajador() {
+    public Persona() {
     }
 
-    public Trabajador(String nombre, String paterno, String materno) {
-        this.nombre = nombre;
-        this.paterno = paterno;
-        this.materno = materno;
-    }
-
-    public Trabajador(Integer idTrabajador, String nombre, String paterno, String materno) {
-        this.idTrabajador = idTrabajador;
-        this.nombre = nombre;
-        this.paterno = paterno;
-        this.materno = materno;
-    }
-
-    public Trabajador(Integer idTrabajador) {
+    public Persona(Integer idTrabajador) {
         this.idTrabajador = idTrabajador;
     }
 
@@ -100,10 +88,10 @@ public class Trabajador implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Trabajador)) {
+        if (!(object instanceof Persona)) {
             return false;
         }
-        Trabajador other = (Trabajador) object;
+        Persona other = (Persona) object;
         if ((this.idTrabajador == null && other.idTrabajador != null) || (this.idTrabajador != null && !this.idTrabajador.equals(other.idTrabajador))) {
             return false;
         }
@@ -112,7 +100,7 @@ public class Trabajador implements Serializable {
 
     @Override
     public String toString() {
-        return "com.jc.elementos.model.Trabajador[ idTrabajador=" + idTrabajador + " ]";
+        return "com.jc.elementos.model.Persona[ idTrabajador=" + idTrabajador + " ]";
     }
     
 }

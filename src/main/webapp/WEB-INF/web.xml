@@ -9,6 +9,14 @@
         <servlet-name>ServletPagarNomina</servlet-name>
         <servlet-class>com.jc.elementos.controller.ServletPagarNomina</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ServletActualizarTrabajador</servlet-name>
+        <servlet-class>com.jc.elementos.controller.ServletActualizarTrabajador</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>NewServlet</servlet-name>
+        <servlet-class>com.jc.elementos.controller.NewServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ServletHoroscopo</servlet-name>
         <url-pattern>/horoscopo</url-pattern>
@@ -16,6 +24,14 @@
     <servlet-mapping>
         <servlet-name>ServletPagarNomina</servlet-name>
         <url-pattern>/nomina</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletActualizarTrabajador</servlet-name>
+        <url-pattern>/actualizar-trabajador</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>NewServlet</servlet-name>
+        <url-pattern>/ACTUALIZA</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

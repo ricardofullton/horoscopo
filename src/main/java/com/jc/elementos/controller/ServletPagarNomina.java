@@ -5,14 +5,18 @@
  */
 package com.jc.elementos.controller;
 
-import com.jc.elementos.model.Nomina;
+
 import com.jc.elementos.model.Trabajador;
+import com.jc.elementos.model.Utilidadeshibernate;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 
 /**
  *
@@ -20,13 +24,19 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class ServletPagarNomina extends HttpServlet {
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-        Trabajador t=new Trabajador(1,"Juan", 40,200);
-        Nomina n=new Nomina(t);
-        out.println(n.pagarNomina());
-        
+       
+
+//finalmente cerramos   el session factory
+Trabajador t=new Trabajador(request.getParameter("nombre"), request.getParameter("paterno"), request.getParameter("materno"));
+DAOTrabajador dao=new DAOTrabajador();
+out.println(dao.guardar(t));
+
+
+
+
     }
 }

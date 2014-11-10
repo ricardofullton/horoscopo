@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Horoscopos Ricardo </title>
+        <meta charset="windows-1252">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="js/libs/jquery/jquery.js"></script>
+        <script src="js/libs/twitter-bootstrap/js/bootstrap.js"></script>
+        <link rel="stylesheet" href="js/libs/twitter-bootstrap/css/bootstrap.min.css"/>
+        <script>var random_images_array = ["http://media.giphy.com/media/wOXQvz3FwajVm/giphy.gif"
+                    ,"http://i0.kym-cdn.com/photos/images/newsfeed/000/098/212/mikeJackson.gif"
+                    ,"http://i2.kym-cdn.com/photos/images/newsfeed/000/181/907/Massimo-DAlema.jpg"
+                    ,"http://i2.kym-cdn.com/photos/images/newsfeed/000/861/295/b29.gif"
+                ,"http://i1.kym-cdn.com/photos/images/newsfeed/000/172/461/1315608252001.gif"
+            ,"http://i3.kym-cdn.com/photos/images/masonry/000/859/588/e1e.gif"
+                ,"http://i0.kym-cdn.com/photos/images/newsfeed/000/846/885/997.gif"
+            ,];</script>
+         <script>
+         function getRandomImage(imgAr, path) {
+    path = path || ''; // default path here
+    var num = Math.floor( Math.random() * imgAr.length );
+    var img = imgAr[ num ];
+    var imgStr = '<img src="' + path + img + '" alt = "">';
+    document.write(imgStr); document.close();
+}
+         </script>
+    </head>
+    <body>
+        
+     
+      
+        
+       <div class="panel panel-success" id="zodiaco" >
+             <div class="panel-heading">
+    <h2 class="panel-title">Bienvenido a los Horóscopos de Ricardo Huarte</h2>
+  </div>
+            <div class="panel-body">
+          
+            <h4>Selecciona tu signo zodiacal</h4>
+            
+           
+            
+            <select class="form-control" name="signo" id="signo"  >
+                <option>Virgo</option>
+                <option>Libra</option>
+                <option>Sagitario</option>
+                <option>Capricornio</option>
+                <option>Piscis</option>
+                <option>Leo</option>
+                <option>Cancer</option>
+                <option>Acuario</option>
+                <option>Geminis</option>
+                <option>Tauro</option>
+                <option>Aries</option>
+                <option>Escorpion</option>
+            </select>
+            <br>
+           
+                <input id="boton" type="submit" class="btn btn-success" value="Voy a tener Suerte!" onclick="show('pronostico')">
+              <br>
+            <br>
+            
+            
+            <div id="pronostico" class="alert alert-info" role="alert"  style="display: none;">
+                <div> <h3><span class="label label-info">Su suerte: </span></h3> </div>
+                
+                <div id="resultado" >   </div>
+                
+                <script type="text/javascript">getRandomImage(random_images_array);</script>
+            </div>
+            </div>
+           </div>
+        <script>
+            function show(target){
+document.getElementById(target).style.display = 'block';
+}
+function hide(target){
+document.getElementById(target).style.display = 'none';
+}
+        </script>
+        <script>
+            $(document).ready(function(){
+             $("#boton").click(function(){
+                $.ajax({
+                    data:{
+                        'signo':$("#signo").val()
+                    },
+                    method:'get',
+                    url:'horoscopo',
+                    success:function(res){
+                         $("#resultado").html(res);  
+                    }
+                });
+              
+             });
+            });
+        </script>
+    </body>
+</html>

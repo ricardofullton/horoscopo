@@ -4,7 +4,8 @@
  * and open the template in the editor.
  */
 package com.jc.elementos.controller;
-
+import com.jc.elementos.model.Trabajador;
+import com.jc.elementos.model.Utilidadeshibernate;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -27,12 +28,18 @@ public class ServletHoroscopo extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+  
+    
+      protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-   String signo=    request.getParameter("signo");
-   out.println("Por ahora nada");
         
+        Pitonisa pito=new Pitonisa(new Zodiaco());
+     
+        out.println(pito.obtenerFuturo(request.getParameter("signo")));  
     }
+    
+    
+    
 }

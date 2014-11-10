@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="windows-1252">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="js/libs/jquery/jquery.js"></script>
+        <script src="js/libs/twitter-bootstrap/js/bootstrap.js"></script>
+        <link rel="stylesheet" href="js/libs/twitter-bootstrap/css/bootstrap.min.css"/>
+        <script>
+            $(document).ready(function(){
+                $("#enviar").click(function(){
+                
+                    $.ajax({
+                        url:"nomina",
+                        method:'post',
+                        data:{
+                        nombre:$("#nombre").val(),
+                        paterno:$("#paterno").val(),
+                        materno:$("#materno").val()
+                    },
+                    success:function(res){
+                            
+                      $("#respuesta").html(res);  
+                  
+                        }
+                        
+                    });
+                });
+            });
+            $(document).ready(function(){
+                $("#actualizar").click(function(){
+                
+                    $.ajax({
+                        url:"actualizar-trabajador",
+                        method:'put',
+                        data:{
+                        idtrabajador:$("#idtrabajador".val(),
+                        nombre:$("#nombre").val(),
+                        paterno:$("#paterno").val(),
+                        materno:$("#materno").val()
+                    },
+                    success:function(res){
+                            
+                      $("#respuesta").html(res);  
+                  
+                        }
+                        
+                    });
+                })
+            });
+        </script>
+    </head>
+    <body>
+        <div>
+        <input type="text" id="nombrea" placeholder="escribe tu nombre"/>
+         <input type="text" id="paternoa" placeholder="escribe a paterno"/>
+          <input type="text" id="maternoa" placeholder="escribe tu a materno"/>
+          <a href="#" id="enviar" class="btn btn-success">Guardar trabajador</a>
+          <div id="respuestaa"></div>
+          </div>
+        <div>
+            <input type="text" id="idtrabajador" placeholder="escribe el id"/>
+        <input type="text" id="nombre" placeholder="escribe tu nombre"/>
+         <input type="text" id="paterno" placeholder="escribe a paterno"/>
+          <input type="text" id="materno" placeholder="escribe tu a materno"/>
+          <a href="#" id="actualizar" class="btn btn-success">Actualizar trabajador</a>
+          <div id="respuesta"></div>
+          </div>
+          <ul class="nav nav-tabs" role="tablist">
+  <li class="active"><a href="#">Inicio</a></li>
+  <li><a href="#">Trabajadores</a></li>
+  <li><a href="#">Nominas</a></li>
+</ul>
+    </body>
+   
+</html>
